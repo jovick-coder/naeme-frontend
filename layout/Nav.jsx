@@ -79,7 +79,7 @@ const Nav = () => {
         className={`${
           isOpen
             ? "pt-7"
-            : "flex pt-7 w-full justify-between py-4 sm:py-5 top-0 fixed right-0 left-0 backdrop-blur-2xl z-40 sm:items-center px-3 sm:px-[40px]"
+            : "flex pt-7 w-full justify-between py-4 sm:py-5 top-0 fixed right-0 left-0 backdrop-blur-sm bg-white bg-opacity-50 z-40 sm:items-center px-3 sm:px-[40px]"
         }`}
       >
         <Link href="/" className="flex items-center mr-4 cursor-pointer">
@@ -197,9 +197,9 @@ const Nav = () => {
             />
           </div>
           <hr />
-          <div className="sm:justify-center text-sm sm:gap-14 pt-14 sm:pt-0 sm:flex sm:items-center">
+          <div className="sm:justify-center text-white sm:text-black  text-sm sm:gap-14 pt-14 sm:pt-0 sm:flex sm:items-center">
             <li
-              className="mb-5 text-white sm:text-black sm:ml-10 sm:mb-0"
+              className="mb-5 sm:ml-10 sm:mb-0"
               onClick={() => setIsOpen(false)}
             >
               <Link href="/events/">Browse events</Link>
@@ -219,7 +219,9 @@ const Nav = () => {
             ) : (
               <Popover>
                 <PopoverTrigger>
-                  <div className="cursor-pointer text-white">Create Event</div>
+                  <div className="cursor-pointer text-white sm:text-black">
+                    Create Event
+                  </div>
                 </PopoverTrigger>
                 <PopoverContent>
                   <PopoverArrow />

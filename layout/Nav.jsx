@@ -79,7 +79,7 @@ const Nav = () => {
         className={`${
           isOpen
             ? "pt-7"
-            : "flex pt-7 w-full justify-between py-4 sm:py-5 top-0 fixed right-0 left-0 backdrop-blur-sm bg-white bg-opacity-50 z-40 sm:items-center px-3 sm:px-[40px]"
+            : "flex pt-7 w-full justify-between py-4 sm:py-5 top-0 fixed right-0 left-0 backdrop-blur-sm z-40 sm:items-center px-3 sm:px-[40px]"
         }`}
       >
         <Link href="/" className="flex items-center mr-4 cursor-pointer">

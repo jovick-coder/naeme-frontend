@@ -1,0 +1,15 @@
+.html {
+  overflow: hidden;
+  position: relative;
+}
+
+.html::before {
+  content: "";
+}
+.html {
+  background-image: url(../../public/Group\ 36.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-position: center;
+}
+

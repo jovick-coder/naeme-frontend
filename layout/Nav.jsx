@@ -72,9 +72,8 @@ const Nav = () => {
       </div>
       {isOpen && (
         <div
-          className={`md:hidden text-white bg-[#000000] overflow-hidden fixed w-full right-0 bottom-0 top-0 transition-all duration-300 ease-in-out ${
-            isOpen ? "opacity-100" : "opacity-0"
-          } h-screen  flex flex-col items-center`}
+          className="md:hidden text-white z-20 bg-[#000000] fixed w-full right-0 bottom-0 top-0 transition-all duration-300 ease-in-out
+          h-screen  flex flex-col items-center"
         >
           <div className="list-none flex flex-col gap-6 my-auto">
             <li
@@ -123,7 +122,7 @@ const Nav = () => {
       )}
 
       <button
-        className="flex md:hidden flex-col rounded justify-center items-center group"
+        className="flex md:hidden flex-col z-50 rounded justify-center items-center group"
         onClick={() => setIsOpen(!isOpen)}
       >
         <div

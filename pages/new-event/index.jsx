@@ -53,7 +53,7 @@ function Index() {
       value={
         startdate ? `${startdate.year}-${startdate.month}-${startdate.day}` : ""
       }
-      className="text-xs border w-full h-10 rounded-xs px-4 my-2" // a styling class
+      className="text-xs border w-full h-10 rounded-xs px-4 my-2 " // a styling class
     />
   );
 
@@ -153,9 +153,9 @@ function Index() {
     }
   };
   return (
-    <Meta className="bg-white" title="Add new event" content="welcome">
-      <div>
-        <div className="mt-32 grid max-w-screen-md sm:px-10 px-4 mx-auto">
+    <Meta className="bg-white mx-auto" title="Add new event" content="welcome">
+      <div className="max-w-screen-md grid mx-auto">
+        <div className="mt-32 sm:px-10 px-4">
           {eventState ? (
             <Tickets />
           ) : (
@@ -164,7 +164,7 @@ function Index() {
                 Start Your Event
               </h1>
               <form
-                className="grid m-auto w-full mt-10"
+                className="grid m-auto mt-10"
                 onSubmit={handleSubmit(onSubmit)}
               >
                 <div className="bg-gray-50 px-4 py-4 rounded-lg">
@@ -398,7 +398,7 @@ function Index() {
                     </span>
                   </label>
 
-                  <div className="grid  md:grid-cols-2 mt-6 gap-7">
+                  <div className="flex mt-6 gap-7">
                     <div className="flex flex-col ">
                       {startdateError &&
                         setTimeout(() => {
@@ -417,7 +417,7 @@ function Index() {
                         shouldHighlightWeekends
                       />
                     </div>
-                    <div className="flex flex-col">
+                    <div className="">
                       {enddateError &&
                         setTimeout(() => {
                           setError(false);

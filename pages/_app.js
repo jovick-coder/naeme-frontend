@@ -21,7 +21,7 @@ export default function App({
   router,
 }) {
   return (
-    <main className="max-w-screen-lg mx-auto">
+    <main className="max-w-screen-xl mx-auto">
       <SessionProvider session={session}>
         <Shared>
           <AnimatePresence>

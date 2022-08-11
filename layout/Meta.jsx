@@ -4,7 +4,7 @@ import Nav from "./Nav";
 export const Meta = ({ title, content, children, className }) => {
   return (
     <div className={`${className}`}>
-      <main className="max-w-screen-2xl mx-auto">
+      <main>
         <Nav />
         <Head>
           <title>{title}</title>

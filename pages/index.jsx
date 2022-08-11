@@ -30,7 +30,7 @@ const Index = ({ events }) => {
       <div className="items-center w-full bg-[url('/hero.jpg')] sm:bg-[url('/le.jpg')] bg-cover bg-center bg-no-repeat bg-fixed h-screen grid sm:mt-20 lg:mt-0 ">
         <div
           data-aos="zoom-in"
-          className="relative sm:mt-0 sm:flex mx-10 items-center xl:p-0 overflow-hidden"
+          className="relative sm:mt-0 sm:flex items-center xl:p-0 overflow-hidden"
         >
           <div className="flex-1 text-white sm:text-black sm:leading-tight font-extrabold sm:mt-32 lg:mt-0 mx-auto text-wine-700 text-[45px] sm:text-[70px]">
             BOOK <p>YOUR</p>

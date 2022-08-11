@@ -62,11 +62,12 @@ const Nav = () => {
         )}
         <button
           onClick={() => {
-            session ? router.push("new-event") : router.push("/signin");
+            session ? signOut() : router.push("/signin");
+            setIsOpen(!isOpen);
           }}
           className="btn-brown text-sm px-7"
         >
-          Create Event
+          {session ? "Logout" : "Login"}
         </button>
       </div>
       {isOpen && (
@@ -92,7 +93,7 @@ const Nav = () => {
               }}
               className="nav-list"
             >
-              Schedule Event
+              create Event
             </li>
           </div>
 

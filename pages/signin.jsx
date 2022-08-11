@@ -5,6 +5,8 @@ import { LoadingContext } from "../context/Context";
 import { Meta } from "../layout/Meta";
 import Spinner from "../components/Spinner";
 import { useSession, getProviders, getSession, signIn } from "next-auth/react";
+import { AiOutlineTwitter } from "react-icons/ai";
+import { FcGoogle } from "react-icons/fc";
 
 const Signin = ({ providers }) => {
   const { loading, setLoading } = useContext(LoadingContext);
@@ -26,7 +28,7 @@ const Signin = ({ providers }) => {
         <div className="mx-auto text-center text-xl my-7 font-bold">
           Lets get you started with your account
         </div>
-        <em>Please login with your prefered social media,</em>
+
         <div className="bg-white p-4 hover:shadow-lg grid sm:w-[500px] w-full">
           <div className="flex mt-4 flex-col content-center gap-4">
             <div
@@ -48,8 +50,9 @@ const Signin = ({ providers }) => {
                     }}
                     className="gap-4 hover:bg-slate-200 py-2 text-xs rounded-sm flex items-center justify-between"
                   >
-                    <span className="px-10 py-3 rounded-2xl border bg-gray-50">
-                      Sign in with {providers.google.id}
+                    <span className="px-10 border-gray-500 items-center gap-4 flex py-3 rounded-2xl border bg-gray-50">
+                      {<FcGoogle className="text-lg" />}Sign in with{" "}
+                      {providers.google.id}
                     </span>
                   </div>
                   <div
@@ -60,10 +63,11 @@ const Signin = ({ providers }) => {
                         console.error(error);
                       });
                     }}
-                    className="gap-4 hover:bg-slate-200 py-2 text-xs rounded-sm flex items-center justify-between"
+                    className="gap-4 hover:bg-slate-200 py-2 text-xs text-blue-500 rounded-sm flex items-center justify-between"
                   >
-                    <span className="px-10 py-3 rounded-2xl border bg-gray-50">
-                      Sign in with {providers.twitter.id}
+                    <span className="px-10 items-center gap-4 flex  py-3 rounded-2xl border-blue-500 border bg-gray-50">
+                      {<AiOutlineTwitter className="text-lg" />}Sign in with{" "}
+                      {providers.twitter.id}
                     </span>
                   </div>
                 </div>

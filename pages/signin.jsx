@@ -26,37 +26,47 @@ const Signin = ({ providers }) => {
         <div className="mx-auto text-center text-xl my-7 font-bold">
           Lets get you started with your account
         </div>
-        <div className="bg-white border p-4 hover:shadow-lg grid sm:w-[400px] w-full">
+        <em>Please login with your prefered social media,</em>
+        <div className="bg-white p-4 hover:shadow-lg grid sm:w-[500px] w-full">
           <div className="flex mt-4 flex-col content-center gap-4">
-            {/* <div className="rounded-xs  py-3 bg-slate-200 w-full flex items-center px-8">
-              <Login logToggle={logToggle} setLogToggle={setLogToggle} />
-            </div> */}
-
             <div
               className={`${
                 loading ? "rounded-xs  w-full my-3" : ""
               }rounded-xs w-full my-3 cursor-pointer flex flex-col gap-y-4 justify-center items-center py-3`}
             >
-              {" "}
               {loading ? (
                 <Spinner />
               ) : (
-                Object.keys(providers).map((key) => (
+                <div>
                   <div
-                    key={key}
-                    href={`${key.signinUrl}`}
                     onClick={() => {
                       setLoading(true);
-                      signIn(key).catch((error) => {
+                      signIn(providers.google.id).catch((error) => {
                         setLoading(false);
                         console.error(error);
                       });
                     }}
-                    className="gap-4 hover:bg-slate-200 py-2 rounded-sm px-7 flex items-center justify-between"
+                    className="gap-4 hover:bg-slate-200 py-2 text-xs rounded-sm flex items-center justify-between"
                   >
-                    <span className="px-4">Sign in with {key}</span>
+                    <span className="px-10 py-3 rounded-2xl border bg-gray-50">
+                      Sign in with {providers.google.id}
+                    </span>
                   </div>
-                ))
+                  <div
+                    onClick={() => {
+                      setLoading(true);
+                      signIn(providers.twitter.id).catch((error) => {
+                        setLoading(false);
+                        console.error(error);
+                      });
+                    }}
+                    className="gap-4 hover:bg-slate-200 py-2 text-xs rounded-sm flex items-center justify-between"
+                  >
+                    <span className="px-10 py-3 rounded-2xl border bg-gray-50">
+                      Sign in with {providers.twitter.id}
+                    </span>
+                  </div>
+                </div>
               )}
             </div>
           </div>

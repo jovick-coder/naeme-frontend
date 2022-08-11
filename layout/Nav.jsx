@@ -16,7 +16,7 @@ const Nav = () => {
   return (
     <nav
       className={
-        "flex h-14 mx-auto sm:h-16 backdrop-blur-md z-40 top-0 right-0 left-0 fixed sm:sticky px-4 md:px-0 md:py-0 justify-between md:justify-between items-center"
+        "flex h-14 mx-auto sm:h-20 backdrop-blur-md z-40 top-0 right-0 left-0 fixed sm:sticky px-4 md:px-0 md:py-0 justify-between md:justify-between items-center"
       }
     >
       <Link href="/" className="flex items-center cursor-pointer">

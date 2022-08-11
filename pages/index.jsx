@@ -27,12 +27,12 @@ const Index = ({ events }) => {
       title="BOOK YOUR TICKETS SEEMLESLY"
       description="Your One Stop Event Application"
     >
-      <div className="items-center w-full bg-[url('/hero.jpg')] sm:bg-[url('/le.jpg')] bg-cover bg-center bg-no-repeat bg-fixed h-screen grid sm:mt-20 lg:mt-0 ">
+      <div className="items-center w-full bg-[url('/hero.jpg')] sm:bg-[url('/le.jpg')] bg-cover bg-center bg-no-repeat bg-fixed sm:h-full h-screen grid sm:mt-0 md:mt-1 lg:mt-0 ">
         <div
           data-aos="zoom-in"
-          className="relative sm:mt-0 sm:flex items-center xl:p-0 overflow-hidden"
+          className="relative sm:mt-0 mx-10 md:mx-0 sm:flex items-center overflow-hidden"
         >
-          <div className="flex-1 text-white sm:text-black sm:leading-tight font-extrabold sm:mt-32 lg:mt-0 mx-auto text-wine-700 text-[45px] sm:text-[70px]">
+          <div className="flex-1 text-white sm:text-black sm:leading-tight font-extrabold sm:mt-10 lg:mt-0 mx-auto text-wine-700 text-[45px] sm:text-[70px]">
             BOOK <p>YOUR</p>
             <span className="text-rose-500 font-font-black">TICKETS </span>{" "}
             SEAMLESLY

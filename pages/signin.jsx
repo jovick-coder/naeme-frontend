@@ -5,18 +5,21 @@ import { LoadingContext } from "../context/Context";
 import { Meta } from "../layout/Meta";
 import Spinner from "../components/Spinner";
 import { useSession, getProviders, getSession, signIn } from "next-auth/react";
-import Image from "next/image";
 
 const Signin = ({ providers }) => {
   const { loading, setLoading } = useContext(LoadingContext);
   const { data: session } = useSession();
   const router = useRouter();
 
+  console.log("session", session);
+
+  console.log("providers", providers);
   useEffect(() => {
     if (session?.user) {
       router.push("/events");
     }
   }, [session, router]);
+
   return (
     <Meta title="Add new event" content="welcome" className="">
       <div className="h-screen px-10 flex-col m-auto flex items-center justify-center">
@@ -32,33 +35,28 @@ const Signin = ({ providers }) => {
             <div
               className={`${
                 loading ? "rounded-xs  w-full my-3" : ""
-              }rounded-xs w-full my-3 cursor-pointer flex justify-center items-center py-3 bg-slate-200`}
+              }rounded-xs w-full my-3 cursor-pointer flex flex-col gap-y-4 justify-center items-center py-3`}
             >
+              {" "}
               {loading ? (
                 <Spinner />
               ) : (
-                <div
-                  key={providers.google.id}
-                  href={`${providers.google.signinUrl}`}
-                  onClick={() => {
-                    setLoading(true);
-                    signIn("google").catch((error) => {
-                      setLoading(false);
-                      console.error(error);
-                    });
-                  }}
-                  className="gap-4 flex items-center justify-between  px-4"
-                >
-                  <Image
-                    height={20}
-                    width={20}
-                    src="/Google.svg"
-                    alt="google-logo"
-                  />
-                  <span className="px-4">
-                    Sign in with {providers.google.name}
-                  </span>
-                </div>
+                Object.keys(providers).map((key) => (
+                  <div
+                    key={key}
+                    href={`${key.signinUrl}`}
+                    onClick={() => {
+                      setLoading(true);
+                      signIn(key).catch((error) => {
+                        setLoading(false);
+                        console.error(error);
+                      });
+                    }}
+                    className="gap-4 hover:bg-slate-200 py-2 rounded-sm px-7 flex items-center justify-between"
+                  >
+                    <span className="px-4">Sign in with {key}</span>
+                  </div>
+                ))
               )}
             </div>
           </div>

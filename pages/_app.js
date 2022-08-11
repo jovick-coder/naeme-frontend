@@ -6,12 +6,12 @@ import { Meta } from "../layout/Meta";
 import dynamic from "next/dynamic";
 import "aos/dist/aos.css";
 const Shared = dynamic(() => import("../layout/shared"));
-const Nav = dynamic(() => import("../layout/Nav"));
+const Nav = dynamic(() => import("../layout/Nav"), { ssr: true });
 
 const AnimatePresence = dynamic(
   () => import("framer-motion").then((mod) => mod.AnimatePresence),
   {
-    ssr: false,
+    ssr: true,
   }
 );
 
@@ -21,9 +21,9 @@ export default function App({
   router,
 }) {
   return (
-    <SessionProvider session={session}>
-      <Shared>
-        <Meta>
+    <main className="max-w-screen-lg mx-auto">
+      <SessionProvider session={session}>
+        <Shared>
           <AnimatePresence>
             <motion.div
               key={router.route}
@@ -44,12 +44,11 @@ export default function App({
                 },
               }}
             >
-              <Nav />
               <Component {...pageProps} />
             </motion.div>
           </AnimatePresence>
-        </Meta>
-      </Shared>
-    </SessionProvider>
+        </Shared>
+      </SessionProvider>
+    </main>
   );
 }

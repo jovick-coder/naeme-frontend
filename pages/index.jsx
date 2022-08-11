@@ -21,12 +21,13 @@ const Index = ({ events }) => {
     AOS.init({ duration: 2000 });
     AOS.refresh();
   }, []);
+
   return (
     <Meta
       title="BOOK YOUR TICKETS SEEMLESLY"
       description="Your One Stop Event Application"
     >
-      <div className="items-center bg-[url('/hero.jpg')] sm:bg-[url('/le.jpg')] bg-cover bg-center bg-no-repeat bg-fixed h-screen grid sm:mt-20 lg:mt-0 ">
+      <div className="items-center w-full bg-[url('/hero.jpg')] sm:bg-[url('/le.jpg')] bg-cover bg-center bg-no-repeat bg-fixed h-screen grid sm:mt-20 lg:mt-0 ">
         <div
           data-aos="zoom-in"
           className="relative sm:mt-0 sm:flex mx-10 items-center xl:p-0 overflow-hidden"
@@ -65,9 +66,7 @@ const Index = ({ events }) => {
         </div>
         <div className="mt-14 px-7 flex justify-end items-center">
           <Link href="/events/">
-            <button className="rounded-xs bg-gray-200 text-black px-2 py-1 block text-xs sm:text-lg">
-              See More
-            </button>
+            <button className="btn-white">See More</button>
           </Link>
         </div>
       </div>

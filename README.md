@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Naeme is a event booking platform for all kinds of events... Offline and online event ticket purchase is also available. currently working on social logins like Twitter and Facebook to enable users to sign in with their prefered auth provider. Some cool features include dynamic QrCode generated for each ticket by my backend Django Rest API, creating of event and ticket types and much more...
+
 First, run the development server:
 
 ```bash

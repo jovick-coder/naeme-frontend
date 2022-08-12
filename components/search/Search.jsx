@@ -25,8 +25,8 @@ function Search() {
   const [totalPages, setTotalPages] = useState(1);
 
   const fetchData = useCallback(async () => {
-    const loadData = async () => {
-      setLoading(true);
+    setLoading(true);
+    (async () => {
       const result = await axios.get(
         `${serverUrl}/events/${page ? "?page=" + page : ""}`
       );
@@ -42,9 +42,8 @@ function Search() {
             })
         );
       }
-      setLoading(false);
-    };
-    loadData();
+      setLoading(true);
+    })();
   }, [page, filteredData]);
 
   useEffect(() => {

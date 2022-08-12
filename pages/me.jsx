@@ -45,8 +45,8 @@ const Me = () => {
               Swipe to see tickets
             </p>
           ) : (
-            <p className=" sm:hidden my-3 text-sm flex justify-center w-full">
-              {session?.user.name} You have no tickets
+            <p className=" sm:hidden my-3 text-xs flex justify-center w-full">
+              {session?.user.name} no ticket available yet
             </p>
           )}
           <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -24,7 +24,7 @@ const Index = ({ events }) => {
 
   return (
     <Meta
-      title="BOOK YOUR TICKETS SEEMLESLY"
+      title="BOOK YOUR TICKETS SEAMLESLY"
       description="Your One Stop Event Application"
     >
       <div className="items-center w-full bg-[url('/hero.jpg')] sm:bg-[url('/le.jpg')] bg-cover bg-center bg-no-repeat bg-fixed sm:h-full h-screen grid sm:mt-0 md:mt-1 lg:mt-0 ">

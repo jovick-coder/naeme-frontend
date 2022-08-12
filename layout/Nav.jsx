@@ -51,7 +51,7 @@ const Nav = () => {
       <div className="md:flex hidden items-center my-auto gap-4 ">
         {session?.user && (
           <div className="cursor-pointer mx-4 hidden sm:flex items-center justify-center h-9 w-9 ">
-            <Link onClick={() => setIsOpen(!isOpen)} href="/me">
+            <Link href="/me">
               <Image
                 className="rounded-[100%]"
                 src={session?.user.image}
@@ -101,8 +101,9 @@ const Nav = () => {
           <div className="flex items-center my-auto gap-4 ">
             {session?.user && (
               <div className="flex border-2 rounded-[100%] cursor-pointer mx-4 md:hidden items-center justify-center h-14 w-14 ">
-                <Link onClick={() => setIsOpen(!isOpen)} href="/me">
+                <Link href="/me">
                   <Image
+                    onClick={() => setIsOpen(!isOpen)}
                     className="rounded-[100%]"
                     src={session?.user.image}
                     height={56}

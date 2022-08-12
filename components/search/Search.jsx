@@ -25,8 +25,8 @@ function Search() {
   const [totalPages, setTotalPages] = useState(1);
 
   const fetchData = useCallback(async () => {
-    setLoading(true);
     const loadData = async () => {
+      setLoading(true);
       const result = await axios.get(
         `${serverUrl}/events/${page ? "?page=" + page : ""}`
       );
@@ -42,15 +42,15 @@ function Search() {
             })
         );
       }
+      setLoading(false);
     };
     loadData();
-    setLoading(false);
   }, [page, filteredData]);
 
   useEffect(() => {
     const word = searchInput.toLowerCase();
-    setLoading(true);
     (async () => {
+      setLoading(true);
       const result = await axios.get(
         `${serverUrl}/events/${page ? "?page=" + page : ""}`
       );
@@ -60,8 +60,8 @@ function Search() {
         })
         .slice(0, 10);
       setFilteredData(filtered);
+      setLoading(false);
     })();
-    setLoading(false);
   }, [page, searchInput]);
 
   const searchItems = (searchValue) => {
@@ -110,9 +110,12 @@ function Search() {
           <p className="">No event matching your search</p>
         </div>
       ) : (
-        <div className="text-center my-10 text-gray-500">
-          <p className="">Event event found</p>
-        </div>
+        !loading &&
+        filteredData.length === 0 && (
+          <div className="text-center my-10 text-gray-500">
+            <p className="">Event event found</p>
+          </div>
+        )
       )}
 
       {loading && (

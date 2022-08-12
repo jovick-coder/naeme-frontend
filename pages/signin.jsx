@@ -27,12 +27,12 @@ const Signin = ({ providers }) => {
           Lets get you started with your account
         </div>
 
-        <div className="bg-white p-4 hover:shadow-lg grid sm:w-[500px] w-full">
-          <div className="flex mt-4 flex-col content-center gap-4">
+        <div className="bg-white sm:w-[400px] w-full">
+          <div className=" mt-4 flex flex-col hover:shadow-lg content-center gap-4">
             <div
               className={`${
                 loading ? "rounded-xs  w-full my-3" : ""
-              }rounded-xs w-full my-3 cursor-pointer flex flex-col gap-y-4 justify-center items-center py-3`}
+              } rounded-xs w-full my-3 cursor-pointer flex flex-col gap-y-4 justify-center items-center py-3`}
             >
               {loading ? (
                 <Spinner />
@@ -63,7 +63,7 @@ const Signin = ({ providers }) => {
                     }}
                     className="gap-4 py-2 text-xs text-blue-500 rounded-sm flex items-center justify-between"
                   >
-                    <span className="px-10 items-center gap-4 flex  py-3 rounded-2xl border-blue-500 border bg-gray-50">
+                    <span className="px-10 items-center gap-4 flex w-full py-3 rounded-2xl border-blue-500 border bg-gray-50">
                       {<AiOutlineTwitter className="text-lg" />}Sign in with{" "}
                       {providers.twitter.id}
                     </span>

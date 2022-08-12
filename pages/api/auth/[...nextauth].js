@@ -32,28 +32,38 @@ export default NextAuth({
   },
 
   callbacks: {
-    // async signIn({ user, account, token }) {
-    //   console.log("signIn", user, account, token);
-    //   const { provider } = account;
-    //   try {
-    //     const response = await axios.post(
-    //       `${NEXT_PUBLIC_API_URL}/account/${provider}/`,
-    //       {
-    //         access_token: account?.access_token,
-    //         token_secret: account?.id_token,
-    //       }
-    //     );
+    async signIn({ user, account, token }) {
+      console.log("signIn", user, account, token);
+      const { provider } = account;
 
-    //     const data = response.data;
-    //     user.accessToken = data.access_token;
-    //     user.refreshToken = data.refresh_token;
-    //     user.id = data?.user.id;
-    //     return true;
-    //   } catch (error) {
-    //     console.log("error:", error);
-    //     return false;
-    //   }
-    // },
+      try {
+        const { oauth_token, oauth_token_secret, access_token, id_token } =
+          account;
+        const response = await axios.post(
+          `${NEXT_PUBLIC_API_URL}/account/${provider}/`,
+          account.provider === "twitter"
+            ? {
+                access_token: oauth_token,
+                token_secret: oauth_token_secret,
+              }
+            : account.provider === "google"
+            ? {
+                access_token: access_token,
+                id_secret: id_token,
+              }
+            : null
+        );
+
+        const data = response.data;
+        user.accessToken = data.access_token;
+        user.refreshToken = data.refresh_token;
+        user.id = data?.user.id;
+        return true;
+      } catch (error) {
+        console.log("error:", error);
+        return false;
+      }
+    },
 
     async jwt({ token, user, account }) {
       console.log("JWTUser:", { token, user, account });

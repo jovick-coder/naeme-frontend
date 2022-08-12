@@ -48,7 +48,7 @@ const Signin = ({ providers }) => {
                         console.error(error);
                       });
                     }}
-                    className="gap-4 hover:bg-slate-200 py-2 text-xs rounded-sm flex items-center justify-between"
+                    className="gap-4 py-2 text-xs rounded-sm flex items-center justify-between"
                   >
                     <span className="px-10 border-gray-500 items-center gap-4 flex py-3 rounded-2xl border bg-gray-50">
                       {<FcGoogle className="text-lg" />}Sign in with{" "}
@@ -63,7 +63,7 @@ const Signin = ({ providers }) => {
                         console.error(error);
                       });
                     }}
-                    className="gap-4 hover:bg-slate-200 py-2 text-xs text-blue-500 rounded-sm flex items-center justify-between"
+                    className="gap-4 py-2 text-xs text-blue-500 rounded-sm flex items-center justify-between"
                   >
                     <span className="px-10 items-center gap-4 flex  py-3 rounded-2xl border-blue-500 border bg-gray-50">
                       {<AiOutlineTwitter className="text-lg" />}Sign in with{" "}

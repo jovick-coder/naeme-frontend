@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "../public/logo.svg";
 import { Meta } from "./Meta";
+import Bars from "./Bars";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -126,38 +127,11 @@ const Nav = () => {
         </div>
       )}
 
-      <button
-        className="flex md:hidden flex-col z-50 rounded justify-center items-center group"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <div
-          className={`${genericHamburgerLine} ${
-            isOpen
-              ? "rotate-45 translate-y-3 bg-white"
-              : !isOpen && router.pathname === "/"
-              ? "bg-white"
-              : "bg-black"
-          }`}
-        />
-        <div
-          className={`${genericHamburgerLine} ${
-            isOpen
-              ? "opacity-0"
-              : !isOpen && router.pathname === "/"
-              ? "bg-white"
-              : "bg-black"
-          } `}
-        />
-        <div
-          className={`${genericHamburgerLine} ${
-            isOpen
-              ? "-rotate-45 -translate-y-3 bg-white"
-              : !isOpen && router.pathname === "/"
-              ? "bg-white"
-              : "bg-black"
-          }`}
-        />
-      </button>
+      <Bars
+        styles={genericHamburgerLine}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      />
     </nav>
   );
 };

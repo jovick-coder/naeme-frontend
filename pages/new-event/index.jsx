@@ -48,7 +48,7 @@ function Index() {
     <input
       readOnly
       ref={ref}
-      placeholder="enter start date"
+      placeholder="start date"
       required
       value={
         startdate ? `${startdate.year}-${startdate.month}-${startdate.day}` : ""
@@ -61,7 +61,7 @@ function Index() {
     <input
       readOnly
       ref={ref}
-      placeholder="enter end date"
+      placeholder="end date"
       required
       value={enddate ? `${enddate.year}-${enddate.month}-${enddate.day}` : ""}
       className="text-xs border w-full h-10 rounded-xs px-4 my-2" // a styling class

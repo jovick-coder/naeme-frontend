@@ -51,13 +51,15 @@ const Nav = () => {
       <div className="md:flex hidden items-center my-auto gap-4 ">
         {session?.user && (
           <div className="cursor-pointer mx-4 hidden sm:flex items-center justify-center h-9 w-9 ">
-            <Image
-              className="rounded-[100%]"
-              src={session?.user.image}
-              height={36}
-              width={36}
-              alt="profile"
-            />
+            <Link href="/me">
+              <Image
+                className="rounded-[100%]"
+                src={session?.user.image}
+                height={36}
+                width={36}
+                alt="profile"
+              />
+            </Link>
           </div>
         )}
         <button
@@ -99,13 +101,15 @@ const Nav = () => {
           <div className="flex items-center my-auto gap-4 ">
             {session?.user && (
               <div className="flex border-2 rounded-[100%] cursor-pointer mx-4 md:hidden items-center justify-center h-14 w-14 ">
-                <Image
-                  className="rounded-[100%]"
-                  src={session?.user.image}
-                  height={56}
-                  width={56}
-                  alt="profile"
-                />
+                <Link href="/me">
+                  <Image
+                    className="rounded-[100%]"
+                    src={session?.user.image}
+                    height={56}
+                    width={56}
+                    alt="profile"
+                  />
+                </Link>
               </div>
             )}
             <button

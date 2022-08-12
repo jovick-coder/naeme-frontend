@@ -3,6 +3,8 @@ import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
 import { SessionProvider } from "next-auth/react";
 import { motion } from "framer-motion";
 import { Meta } from "../layout/Meta";
+import "swiper/css";
+import "swiper/css/virtual";
 import dynamic from "next/dynamic";
 import "aos/dist/aos.css";
 const Shared = dynamic(() => import("../layout/shared"));

@@ -13,8 +13,6 @@ const Signin = ({ providers }) => {
   const { data: session } = useSession();
   const router = useRouter();
 
-  console.log("session", session);
-
   console.log("providers", providers);
   useEffect(() => {
     if (session?.user) {

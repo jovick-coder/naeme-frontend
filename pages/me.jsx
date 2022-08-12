@@ -4,8 +4,7 @@ import { Meta } from "../layout/Meta";
 import { serverUrl } from "../config";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import "swiper/css";
-import "swiper/css/virtual";
+
 import dynamic from "next/dynamic";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Virtual } from "swiper";

@@ -43,21 +43,19 @@ export default NextAuth({
           `${NEXT_PUBLIC_API_URL}/account/${provider}/`,
           account.provider === "twitter"
             ? {
-                access_token: oauth_token,
-                token_secret: oauth_token_secret,
+                access_token_key: oauth_token,
+                access_token_secret: oauth_token_secret,
               }
             : account.provider === "google"
             ? {
-                access_token: access_token,
-                id_secret: id_token,
+                auth_token: id_token,
               }
             : null
         );
-
         const data = response.data;
         user.accessToken = data.access_token;
         user.refreshToken = data.refresh_token;
-        user.id = data?.user.id;
+        user.id = data?.id;
         return true;
       } catch (error) {
         console.log("error:", error);
@@ -79,7 +77,7 @@ export default NextAuth({
     async session({ session, token, user, account }) {
       console.log("SessionUser:", { session, token, user, account });
       if (account) {
-        const { accessToken, refreshToken } = account;
+        const { accessToken, refreshToken } = token;
         session.accessToken = accessToken;
         session.refreshToken = refreshToken;
       }

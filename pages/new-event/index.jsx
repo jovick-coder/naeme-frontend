@@ -37,7 +37,7 @@ function Index() {
       router.push("/signin");
     }
   }, [router, session]);
-
+  console.log("data:", session?.accessToken);
   const {
     register,
     handleSubmit,
@@ -69,7 +69,6 @@ function Index() {
   );
 
   const onSubmit = async (data) => {
-    // console.log("data:", data);
     const {
       title,
       description,
@@ -128,6 +127,7 @@ function Index() {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
+            Authorization: `Bearer ${session?.accessToken}`,
           },
         })
           .then((response) => {
@@ -141,7 +141,7 @@ function Index() {
           })
           .catch((error) => {
             setLoading(false);
-            // console.log("error", error);
+            console.log("error", error);
             setError(true);
             return error;
           });

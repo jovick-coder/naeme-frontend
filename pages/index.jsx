@@ -58,7 +58,7 @@ const Index = ({ events }) => {
           <h2 className="font-bold text-lg sm:text-2xl">Upcoming Event</h2>
         </div>
         <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 place-items-center">
-          {events?.results.slice(0, 3).map((event) => (
+          {events?.results?.slice(0, 3).map((event) => (
             <div key={event.id} data-aos="zoom-in">
               <Card event={event} />
             </div>

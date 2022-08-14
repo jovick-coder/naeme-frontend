@@ -1,6 +1,5 @@
 import Search from "../../components/search/Search";
 import { Meta } from "../../layout/Meta";
-
 const Events = () => {
   return (
     <Meta

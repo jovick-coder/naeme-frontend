@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../public/logo.svg";
-import { Meta } from "./Meta";
 import Bars from "./Bars";
 
 const Nav = () => {

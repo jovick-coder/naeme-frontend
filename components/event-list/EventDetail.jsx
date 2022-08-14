@@ -205,8 +205,9 @@ const EventDetail = ({ event }) => {
     const response = await fetch(`${serverUrl}/my-tickets/`, {
       method: "POST",
       headers: {
-        Accept: "application/json",
         "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${session?.accessToken}`,
       },
       body: JSON.stringify({
         event: event?.title,

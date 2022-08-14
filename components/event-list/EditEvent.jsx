@@ -129,6 +129,7 @@ const EditEvent = ({ event, toggle, setToggle }) => {
               headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json",
+                Authorization: `Bearer ${session?.accessToken}`,
               },
             }
           );

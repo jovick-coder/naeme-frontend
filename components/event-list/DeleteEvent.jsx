@@ -57,8 +57,11 @@ const Button = dynamic(
 
 import { serverUrl } from "../../config/index";
 import dynamic from "next/dynamic";
+import { useSession } from "next-auth/react";
+
 function DeleteEvent({ event }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { data: session } = useSession();
   const cancelRef = useRef();
   const { loading, setLoading } = useContext(LoadingContext);
   const router = useRouter();
@@ -68,8 +71,9 @@ function DeleteEvent({ event }) {
       const response = await fetch(`${serverUrl}/events/${event.id}/`, {
         method: "DELETE",
         headers: {
-          Accept: "application/json",
           "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `Bearer ${session?.accessToken}`,
         },
       });
       if (response.status === 204) {

@@ -22,7 +22,14 @@ const Me = () => {
     } else {
       (async () => {
         const res = await fetch(
-          `${serverUrl}/my-tickets/?user=${session?.user.id}`
+          `${serverUrl}/my-tickets/?user=${session?.user.id}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+              Authorization: `Bearer ${session?.accessToken}`,
+            },
+          }
         );
         const data = await res.json();
         // console.log("data", data);

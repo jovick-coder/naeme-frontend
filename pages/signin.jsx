@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
-
+import cookie from "js-cookie";
 import { LoadingContext } from "../context/Context";
 import { Meta } from "../layout/Meta";
 import Spinner from "../components/Spinner";
@@ -48,7 +48,7 @@ const Signin = ({ providers }) => {
                   >
                     <span className="px-10 border-gray-500 items-center gap-4 flex py-3 rounded-2xl border bg-gray-50">
                       {<FcGoogle className="text-lg" />}Sign in with{" "}
-                      {providers.google.id}
+                      {providers?.google.id}
                     </span>
                   </div>
                   <div
@@ -63,7 +63,7 @@ const Signin = ({ providers }) => {
                   >
                     <span className="px-10 items-center gap-4 flex w-full py-3 rounded-2xl border-blue-500 border bg-gray-50">
                       {<AiOutlineTwitter className="text-lg" />}Sign in with{" "}
-                      {providers.twitter.id}
+                      {providers?.twitter.id}
                     </span>
                   </div>
                 </div>
@@ -78,13 +78,11 @@ const Signin = ({ providers }) => {
 
 export default Signin;
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const providers = await getProviders();
-  const session = await getSession(context);
   return {
     props: {
       providers: providers,
-      session: session,
     },
   };
 }

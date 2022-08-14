@@ -112,7 +112,7 @@ function Search() {
         !loading &&
         filteredData.length === 0 && (
           <div className="text-center my-10 text-gray-500">
-            <p className="">Event event found</p>
+            <p className="">No event in our database.</p>
           </div>
         )
       )}

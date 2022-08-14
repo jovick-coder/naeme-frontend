@@ -12,8 +12,6 @@ const Signin = ({ providers }) => {
   const { loading, setLoading } = useContext(LoadingContext);
   const { data: session } = useSession();
   const router = useRouter();
-
-  console.log("providers", providers);
   useEffect(() => {
     if (session?.user) {
       router.push("/events");

@@ -32,54 +32,43 @@ export default NextAuth({
   },
 
   callbacks: {
-    async signIn({ user, account, token }) {
-      console.log("signIn", user, account, token);
-      const { provider } = account;
+    async jwt({ token, user, account }) {
+      console.log("JWTUser:", { token, user, account });
 
       try {
-        const { oauth_token, oauth_token_secret, access_token, id_token } =
-          account;
+        const { oauth_token, oauth_token_secret, id_token, account } = account;
         const response = await axios.post(
           `${NEXT_PUBLIC_API_URL}/account/${provider}/`,
-          account.provider === "twitter"
+          provider === "twitter"
             ? {
                 access_token_key: oauth_token,
                 access_token_secret: oauth_token_secret,
               }
-            : account.provider === "google"
+            : provider === "google"
             ? {
                 auth_token: id_token,
               }
             : null
         );
-        const data = response.data;
-        user.accessToken = data.access_token;
-        user.refreshToken = data.refresh_token;
-        user.id = data?.id;
+        const data = response?.data;
+        token.accessToken = data?.access_token;
+        token.refreshToken = data?.refresh_token;
+        token.sub = data?.id;
         return true;
       } catch (error) {
         console.log("error:", error);
         return false;
-      }
-    },
-
-    async jwt({ token, user, account }) {
-      console.log("JWTUser:", { token, user, account });
-
-      if (user) {
-        const { accessToken, refreshToken } = user;
-        token.accessToken = accessToken;
-        token.refreshToken = refreshToken;
       }
       return token;
     },
 
     async session({ session, token, user, account }) {
       console.log("SessionUser:", { session, token, user, account });
-      if (account) {
-        const { accessToken, refreshToken } = token;
+      if (token) {
+        const { accessToken, refreshToken, sub } = token;
         session.accessToken = accessToken;
         session.refreshToken = refreshToken;
+        session.user.id = sub;
       }
       return session;
     },
